@@ -23,6 +23,10 @@ public class Usuario implements Serializable{
 	private String nome;
 
 		
+	public Usuario() {
+		super();
+	}
+
 	public Usuario(Long id, String login, String senha, String nome) {
 		super();
 		this.id = id;

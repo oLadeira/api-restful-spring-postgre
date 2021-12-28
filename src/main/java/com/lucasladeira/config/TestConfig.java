@@ -20,7 +20,7 @@ public class TestConfig implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Usuario u1 = new Usuario(null, "fulano@gmail.com", "Fulano Silva", "1234");
+		Usuario u1 = new Usuario(null, "fulano@gmail.com", "1234", "Fulano da Silva");
 		
 		usuarioRepository.saveAll(Arrays.asList(u1));
 	}
