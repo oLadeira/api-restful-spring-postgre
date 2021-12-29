@@ -25,4 +25,8 @@ public class UsuarioService {
 		Optional<Usuario> usuario = usuarioRepository.findById(id);
 		return usuario.get();
 	}
+	
+	public void save(Usuario usuario) {
+		usuarioRepository.save(usuario);
+	}
 }
