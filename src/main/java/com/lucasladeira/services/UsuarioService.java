@@ -29,4 +29,9 @@ public class UsuarioService {
 	public void save(Usuario usuario) {
 		usuarioRepository.save(usuario);
 	}
+	
+	public void update(Long id, Usuario usuario) {
+		usuario.setId(id);
+		usuarioRepository.save(usuario);
+	}
 }
