@@ -12,6 +12,7 @@
 	<groupId>com.lucasladeira</groupId>
 	<artifactId>api-restful-spring-postgre</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>api-restful-spring-postgre</name>
 	<description>Projeto de API RestFul com Spring + Postgre</description>
 	<properties>
