@@ -27,6 +27,12 @@ public class UsuarioService {
 	}
 	
 	public void save(Usuario usuario) {
+		
+		//for para salvar telefones quando for salvar usuario 
+		for (int x=0; x < usuario.getTelefones().size(); x++) {
+			usuario.getTelefones().get(x).setUsuario(usuario);
+		}
+		
 		usuarioRepository.save(usuario);
 	}
 	

@@ -25,7 +25,7 @@ public class Usuario implements Serializable{
 	
 	private String nome;
 
-	@OneToMany(mappedBy = "usuario")
+	@OneToMany(mappedBy = "usuario", cascade = javax.persistence.CascadeType.ALL) //cascade alem de salvar usuario, salva os telefones
 	private List<Telefone> telefones = new ArrayList<>();
 	
 	
