@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import com.lucasladeira.entities.Telefone;
 import com.lucasladeira.entities.Usuario;
 import com.lucasladeira.repositories.UsuarioRepository;
 
@@ -23,6 +24,7 @@ public class TestConfig implements CommandLineRunner{
 		Usuario u1 = new Usuario(null, "fulano@gmail.com", "1234", "Fulano da Silva");
 		
 		usuarioRepository.saveAll(Arrays.asList(u1));
+		
 	}
 
 }

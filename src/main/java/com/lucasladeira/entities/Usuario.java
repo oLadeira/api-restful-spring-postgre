@@ -1,12 +1,15 @@
 package com.lucasladeira.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Usuario implements Serializable{
@@ -22,7 +25,10 @@ public class Usuario implements Serializable{
 	
 	private String nome;
 
-		
+	@OneToMany(mappedBy = "usuario")
+	private List<Telefone> telefones = new ArrayList<>();
+	
+	
 	public Usuario() {
 		super();
 	}
@@ -65,8 +71,13 @@ public class Usuario implements Serializable{
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}	
+
+	public List<Telefone> getTelefones() {
+		return telefones;
 	}
 
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
