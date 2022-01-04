@@ -37,8 +37,18 @@ public class UsuarioService {
 	}
 	
 	public void update(Long id, Usuario usuario) {
+		
+		Optional<Usuario> us = usuarioRepository.findById(id);
+		
+		us.orElseThrow(() -> new RuntimeException());
+		
+		for (int x=0; x < usuario.getTelefones().size(); x++) {
+			usuario.getTelefones().get(x).setUsuario(usuario);
+		}
+		
 		usuario.setId(id);
 		usuarioRepository.save(usuario);
+		
 	}
 	
 	public void delete(Long id) {
