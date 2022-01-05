@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.lucasladeira.entities.Usuario;
 import com.lucasladeira.repositories.UsuarioRepository;
+import com.lucasladeira.services.exceptions.EntityNotFound;
 
 @Service
 public class UsuarioService {
@@ -23,6 +24,9 @@ public class UsuarioService {
 	
 	public Usuario getById(Long id) {
 		Optional<Usuario> usuario = usuarioRepository.findById(id);
+		
+		usuario.orElseThrow(() -> new EntityNotFound("Usuário não encontrado!"));
+		
 		return usuario.get();
 	}
 	
@@ -40,7 +44,7 @@ public class UsuarioService {
 		
 		Optional<Usuario> us = usuarioRepository.findById(id);
 		
-		us.orElseThrow(() -> new RuntimeException());
+		us.orElseThrow(() -> new EntityNotFound("Usuário não encontrado!"));
 		
 		for (int x=0; x < usuario.getTelefones().size(); x++) {
 			usuario.getTelefones().get(x).setUsuario(usuario);
@@ -52,6 +56,10 @@ public class UsuarioService {
 	}
 	
 	public void delete(Long id) {
+		Optional<Usuario> usuario = usuarioRepository.findById(id);
+		
+		usuario.orElseThrow(() -> new EntityNotFound("Usuário não encontrado!"));
+		
 		usuarioRepository.deleteById(id);
 	}
 }
